@@ -7,6 +7,21 @@ function classNames(...classes) {
 const BRAND_NAME = 'REPULSIVE'
 const SLOGAN = 'Stand against the crowd'
 
+const THEMES = {
+  'Minimal': {
+    bg: 'bg-gradient-to-b from-white to-gray-50',
+    hero: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1600&auto=format&fit=crop',
+  },
+  'Anime Inspired': {
+    bg: 'bg-gradient-to-b from-fuchsia-50 via-purple-50 to-rose-50',
+    hero: 'https://images.unsplash.com/photo-1620799139504-5c1f4f8b2b87?q=80&w=1600&auto=format&fit=crop',
+  },
+  'Christian': {
+    bg: 'bg-gradient-to-b from-amber-50 via-emerald-50 to-sky-50',
+    hero: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1600&auto=format&fit=crop',
+  }
+}
+
 function ProductCard({ product }) {
   return (
     <div className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all">
@@ -159,8 +174,10 @@ export default function App() {
     }
   }
 
+  const theme = THEMES[active] || THEMES['Minimal']
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className={classNames('min-h-screen transition-colors duration-500', theme.bg)}>
       {/* Nav */}
       <header className="sticky top-0 z-10 backdrop-blur bg-white/70 border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -203,10 +220,11 @@ export default function App() {
           </div>
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
             <img
-              src="https://images.unsplash.com/photo-1516826957135-700dedea698c?q=80&w=1600&auto=format&fit=crop"
+              src={theme.hero}
               alt="Hero"
               className="absolute inset-0 h-full w-full object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-white/10" />
           </div>
         </div>
       </section>
