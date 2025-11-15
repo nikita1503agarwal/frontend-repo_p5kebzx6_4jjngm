@@ -4,6 +4,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
+const BRAND_NAME = 'REPULSIVE'
+const SLOGAN = 'Stand against the crowd'
+
 function ProductCard({ product }) {
   return (
     <div className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all">
@@ -163,7 +166,7 @@ export default function App() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-full bg-black" />
-            <span className="text-lg font-bold tracking-tight">FLAMES STUDIO</span>
+            <span className="text-lg font-bold tracking-tight">{BRAND_NAME}</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
             <a href="#minimal" className="hover:text-gray-900">Minimal</a>
@@ -178,7 +181,8 @@ export default function App() {
       <section className="relative">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid gap-8 md:grid-cols-2 items-center">
           <div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900">Wear your story.</h1>
+            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900">{BRAND_NAME}</h1>
+            <p className="mt-2 text-lg font-medium text-gray-900">{SLOGAN}</p>
             <p className="mt-4 text-gray-600">Explore three curated worlds – clean Minimal staples, bold Anime inspired art, and meaningful Christian designs.</p>
             <div className="mt-8 flex gap-3">
               {CATEGORIES.map((c) => (
@@ -239,7 +243,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-gray-200 py-8 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Flames Studio. All rights reserved.
+        © {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.
       </footer>
     </div>
   )
